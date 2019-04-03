@@ -2,7 +2,7 @@
 const moment = require("moment"); // Library for date manipulation
 var request = require('request'); // Library for sending API request
 
-var date = moment("2019-04-04") //date on which birthday is.
+var date = moment("2019-12-04") //date on which birthday is.
 var minutes = -moment().diff(date, 'minutes')
 var seconds = -moment().diff(date, 'seconds')
 var minutes = {

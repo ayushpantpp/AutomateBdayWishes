@@ -23,7 +23,7 @@ const refreshId = setInterval(
   3600000
 );
 }
-//pankhuriagarwal@outlook.com
+
 async function sendMailFunc(hours){
   console.log(-hours);
   let days = Math.floor(-hours/24);
@@ -31,18 +31,17 @@ async function sendMailFunc(hours){
   console.log(days, hoursnew);
   let account = await nodemailer.createTestAccount();
   let transporter = nodemailer.createTransport({
-    host: "mailcluster.loopia.se",
+    host: "", //mail client address
     port: 587,
-    secure: false, // true for 465, false for other ports
+    secure: false, //true for 465, false for other ports
     auth: {
-      user: 'no-reply@yogateket.com', // generated ethereal user
-      pass: 'Waflni31' // generated ethereal password
+      user: '', // generated ethereal user
+      pass: '' // generated ethereal password
     }
   });
   let mailOptions = {
-    from: '"Ayush" <ayushpantpp@gmail.com>', // sender address
-    to: "ayushpantpp@gmail.com, pankhuriagarwal@outlook.com, pankhuri.agarwal@delhivery.com ", // list of receivers
-    //to: "ayushpantpp@gmail.com", // list of receivers
+    from: '', // sender address
+    to: "", // list of receivers
     subject: "It's Celebration Time !!!!  ✔", // Subject line
     text: "Your Birthday is in" + days + hoursnew + "only", // plain text body
     html: "<b>Hi Dear , </br> </br></br> <b>Your Birthday is in " + days + " Days and " + hoursnew + " hours " + " only "+" Hope you are having a great time!!</b> "// html body
