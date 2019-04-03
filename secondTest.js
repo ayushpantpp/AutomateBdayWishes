@@ -1,8 +1,8 @@
 
-const moment = require("moment");
-var request = require('request');
+const moment = require("moment"); // Library for date manipulation
+var request = require('request'); // Library for sending API request
 
-var date = moment("2019-04-02")
+var date = moment("2019-04-04") //date on which birthday is.
 var minutes = -moment().diff(date, 'minutes')
 var seconds = -moment().diff(date, 'seconds')
 var minutes = {
@@ -27,7 +27,6 @@ const CheckReload = (() => {
             counter: 900000
         }
     } else {
-        console.log('here')
         return minutes = {
             min: minutes/60,
             text: 'hours',
@@ -50,14 +49,19 @@ let timerId = setTimeout(function request() {
     if (minutes >= 0) {
       clearInterval(minutes);
     }
+    // New condition added so it dont break was not there eairler.
+        if (minutes.min < 0) {
+      console.log('is exiting');
+      return process.exit(22);
+    }
   },
   minutes.counter
 );
-
+// Please get your instance and token from following Site https://app.chat-api.com this provide you api to use Whatsapp and other messaging services.
 const sendMessage = (minutes) => {
-    var url = 'https://eu13.chat-api.com/instance33344/message?token=64ahf5uew72gbs2z';
+    var url = 'https://eu13.chat-api.com/instanceID/message?token=tokenYouGetFromChatAPI';
     var data = {
-        phone: '919457288864', // Receivers phone
+        phone: '//enter the phone no you want to send to', // Receivers phone
         body: 'Hi Time to your Birthday is just: ' + Math.ceil(minutes.min) + ' ' + minutes.text + ' Enjoy your day!!', 
     };
     // Send a request
@@ -68,9 +72,9 @@ const sendMessage = (minutes) => {
     });
 }
 const sendMessageLast = () => {
-    var url = 'https://eu13.chat-api.com/instance33344/message?token=64ahf5uew72gbs2z';
+    var url = 'https://eu13.chat-api.com/instanceID/message?token=tokenYouGetFromChatAPI';
     var data = {
-        phone: '919457288864', // Receivers phone
+        phone: '//enter the phone no you want to send to', // Receivers phone
         body: 'Happy Birthday To You !!!!!', 
     };
     // Send a request
